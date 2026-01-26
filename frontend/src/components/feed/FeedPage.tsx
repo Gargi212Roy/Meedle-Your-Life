@@ -22,10 +22,10 @@ const FeedPage: React.FC = () => {
 		try {
 			const data = await fetchFeed(pageToLoad, LIMIT);
 
-			setFeed((prev) => [...prev, ...data.meedles]);
+			setFeed((prev) => [...prev, ...data?.meedles]);
 
 			const loadedCount = pageToLoad * LIMIT;
-			setHasMore(loadedCount < data.count);
+			setHasMore(loadedCount < data?.count);
 		} catch {
 			setError("Failed to load feed");
 		} finally {
