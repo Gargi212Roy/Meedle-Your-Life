@@ -34,7 +34,7 @@ export const createMeedle = async (
 			);
 		}
 
-		if (text.length > 120) {
+		if (text.length > 280) {
 			return sendError(
 				res,
 				ERROR_MESSAGES.MEEDLE_TOO_LONG,

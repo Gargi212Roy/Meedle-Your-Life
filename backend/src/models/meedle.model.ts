@@ -2,7 +2,7 @@ import mongoose, { Schema, Model } from "mongoose";
 import { IMeedle, IReply } from "../interfaces/IMeedle";
 
 const ReplySchema = new Schema<IReply>({
-	text: { type: String, maxlength: 120 },
+	text: { type: String, maxlength: 280 },
 	author: { type: Schema.Types.ObjectId, ref: "User" },
 	createdAt: { type: Date, default: Date.now },
 });
@@ -12,7 +12,7 @@ const MeedleSchema = new Schema<IMeedle>(
 		text: {
 			type: String,
 			required: true,
-			maxlength: 120,
+			maxlength: 280,
 		},
 		author: {
 			type: Schema.Types.ObjectId,

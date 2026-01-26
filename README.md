@@ -38,7 +38,7 @@ Users can post short thoughts (“meedles”), follow others, like and reply, an
 ### Deployment
 
 - Frontend: **Vercel**
-- Backend: **Railway / Render**
+- Backend: **Railway**
 - Database: **MongoDB Atlas**
 
 ## 📌 Future Improvements

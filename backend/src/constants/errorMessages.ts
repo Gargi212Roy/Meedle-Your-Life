@@ -15,7 +15,7 @@ export const ERROR_MESSAGES = {
 	NOT_FOLLOWING: "You are not following this user",
 	// meedle specific
 	MEEDLE_TEXT_REQUIRED: "Meedle text is required",
-	MEEDLE_TOO_LONG: "Meedle must be 120 characters or less",
+	MEEDLE_TOO_LONG: "Meedle must be 280 characters or less",
 	MEEDLE_NOT_FOUND: "Meedle not found",
 	NOT_MEEDLE_OWNER: "You are not allowed to perform this action",
 } as const;

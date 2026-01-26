@@ -35,7 +35,7 @@ const ReplyComposer: React.FC<ReplyComposerProps> = ({
 				value={text}
 				onChange={(e) => setText(e.target.value)}
 				placeholder="Write a reply…"
-				maxLength={120}
+				maxLength={280}
 			/>
 			<button onClick={handleSubmit} disabled={loading}>
 				Reply
