@@ -22,12 +22,19 @@ const FeedPage: React.FC = () => {
 		try {
 			const data = await fetchFeed(pageToLoad, LIMIT);
 
-			setFeed((prev) => [...prev, ...data?.meedles]);
+			if (!data || !Array.isArray(data.meedles)) {
+				setHasMore(false);
+				return;
+			}
 
-			const loadedCount = pageToLoad * LIMIT;
-			setHasMore(loadedCount < data?.count);
+			setFeed((prev) => [...prev, ...data.meedles]);
+
+			if (data.meedles.length < LIMIT) {
+				setHasMore(false);
+			}
 		} catch {
 			setError("Failed to load feed");
+			setHasMore(false);
 		} finally {
 			setLoading(false);
 			setLoadingMore(false);
@@ -75,6 +82,7 @@ const FeedPage: React.FC = () => {
 						setPage(1);
 						setHasMore(true);
 						setLoading(true);
+						setError(null);
 						loadFeed(1);
 					}}
 				/>
@@ -93,7 +101,8 @@ const FeedPage: React.FC = () => {
 								{loadingMore && <p>Loading more…</p>}
 							</div>
 						)}
-						{!hasMore && (
+
+						{!hasMore && feed.length > 0 && (
 							<p className="feed-end">You’re all caught up ✨</p>
 						)}
 					</>

@@ -8,7 +8,7 @@ export const fetchNotifications = async (): Promise<Notification[]> => {
 
 export const fetchUnreadCount = async (): Promise<number> => {
 	const res = await api.get("/notifications/unread-count");
-	return res.data.data.count;
+	return res.data?.data?.count || 0;
 };
 
 export const markAllAsRead = async (): Promise<void> => {
