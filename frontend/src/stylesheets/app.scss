@@ -1,0 +1,51 @@
+@import "./theme";
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	overflow-x: hidden;
+}
+
+.app-shell {
+	position: fixed;
+	inset: 0;
+
+	display: flex;
+	flex-direction: column;
+
+	background:
+		linear-gradient(100deg, $color-pink-primary, $color-pink-secondary),
+		url("../assets/backgroundImg.avif") no-repeat center center / cover;
+
+	font-family: $font-primary;
+}
+
+.toast {
+	position: fixed;
+	bottom: 24px;
+	right: 24px;
+
+	background: rgba(0, 0, 0, 0.85);
+	color: white;
+
+	padding: 12px 16px;
+	border-radius: 12px;
+	font-size: 14px;
+
+	animation: slideUp 0.3s ease;
+	z-index: 1000;
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateY(10px);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}

@@ -1,0 +1,161 @@
+@import "./theme";
+
+.auth-card {
+	width: 360px;
+	padding: 32px;
+	border-radius: 16px;
+
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(12px);
+	box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+
+	color: $color-white;
+
+	animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.auth-title {
+	font-size: 24px;
+	font-weight: 600;
+}
+
+.auth-subtitle {
+	font-size: 14px;
+	margin-top: 4px;
+	color: $color-white-muted;
+}
+
+.auth-form {
+	display: flex;
+	flex-direction: column;
+	gap: 14px;
+	margin-top: 24px;
+
+	input {
+		height: 42px;
+		border-radius: 8px;
+		border: none;
+		padding: 0 14px;
+		font-size: 14px;
+		outline: none;
+		background: rgba(255, 255, 255, 0.9);
+		color: #000;
+		transition: box-shadow 0.2s ease;
+
+		&:focus {
+			box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.6);
+		}
+	}
+
+	button {
+		height: 42px;
+		border-radius: 8px;
+		border: none;
+		margin-top: 8px;
+
+		background: rgba(255, 255, 255, 0.85);
+		color: #000;
+		font-weight: 600;
+		cursor: pointer;
+		transition: $transition-fast;
+
+		&:hover {
+			background: #fff;
+		}
+	}
+}
+
+.auth-form input::placeholder {
+	color: rgba(0, 0, 0, 0.5);
+}
+
+.auth-switch {
+	margin-top: 18px;
+	font-size: 13px;
+	color: $color-white-muted;
+
+	a {
+		color: $color-white;
+		font-weight: 500;
+		text-decoration: none;
+		transition: opacity 0.2s ease;
+
+		&:hover {
+			opacity: 0.8;
+			text-decoration: underline;
+		}
+	}
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+}
+
+.hint {
+	margin-top: 4px;
+	font-size: 12px;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.password-field {
+	position: relative;
+
+	.toggle-password {
+		position: absolute;
+		right: 12px;
+		top: -18%;
+		background: none !important;
+		border: none;
+		color: rgba(0, 0, 0, 0.6);
+		font-size: 12px;
+		cursor: pointer;
+	}
+}
+
+.auth-error {
+	margin-top: 8px;
+	font-size: 13px;
+	color: #ffe1e1;
+	background: rgba(255, 0, 0, 0.15);
+	padding: 8px 10px;
+	border-radius: 6px;
+}
+
+// login/register form animations
+
+.auth-form-wrapper {
+	transition:
+		opacity 0.25s ease,
+		transform 0.25s ease;
+}
+
+.auth-form-wrapper.login {
+	animation: fadeSlideIn 0.25s ease;
+}
+
+.auth-form-wrapper.register {
+	animation: fadeSlideIn 0.25s ease;
+}
+
+@keyframes fadeSlideIn {
+	from {
+		opacity: 0;
+		transform: translateY(6px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

@@ -1,0 +1,37 @@
+@import "./theme";
+
+.notif-badge {
+	margin-left: 6px;
+	background: #ff4d6d;
+	color: white;
+	font-size: 11px;
+	padding: 2px 6px;
+	border-radius: 999px;
+}
+
+.notifications-title {
+	font-size: 20px;
+	margin-bottom: 20px;
+	color: $color-white;
+}
+
+.notification-item {
+	padding: 14px 18px;
+	border-radius: 16px;
+	background: rgba(255, 255, 255, 0.12);
+	margin-bottom: 12px;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.notification-text {
+	font-size: 14px;
+	color: $color-white;
+}
+
+.notification-time {
+	font-size: 12px;
+	color: $color-white-muted;
+}

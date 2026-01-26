@@ -1,0 +1,149 @@
+@import "./theme";
+
+.navbar-container {
+	height: $spacing-navbar-height;
+	padding: 16px 24px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	font-family: $font-primary;
+	color: $color-white;
+	position: relative;
+}
+
+.name {
+	font-size: 32px;
+	font-weight: 600;
+	letter-spacing: -0.02em;
+}
+
+.navbar-actions {
+	display: flex;
+	align-items: center;
+	gap: 28px;
+}
+
+.nav-link,
+.auth-link {
+	background: none;
+	border: none;
+	padding: 0;
+	font-size: $font-size-md;
+	color: $color-white-muted;
+	cursor: pointer;
+	text-decoration: none;
+	transition: $transition-fast;
+
+	&:hover {
+		color: $color-white;
+	}
+}
+
+.nav-link.active {
+	color: $color-white;
+	font-weight: 600;
+	position: relative;
+}
+
+.nav-link.active::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: -6px;
+	width: 100%;
+	height: 2px;
+	border-radius: 2px;
+	background: rgba(255, 255, 255, 0.9);
+}
+
+.desktop-only {
+	display: flex;
+}
+
+.hamburger {
+	display: none !important;
+	background: none;
+	border: none;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+	cursor: pointer;
+
+	span {
+		width: 24px;
+		height: 3px;
+		background: rgba(255, 255, 255, 0.9);
+
+		border-radius: 2px;
+	}
+}
+
+.mobile-menu {
+	position: absolute;
+	top: calc($spacing-navbar-height + 8px);
+	right: 12px;
+	z-index: 1000;
+
+	background: rgba(255, 255, 255, 0.18);
+	backdrop-filter: blur(16px);
+	-webkit-backdrop-filter: blur(16px);
+
+	border-radius: 18px;
+	padding: 16px 14px;
+	min-width: 220px;
+
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+
+	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+
+	a,
+	button {
+		background: none;
+		border: none;
+
+		font-family: $font-primary;
+		font-size: 15px;
+		font-weight: 500;
+
+		color: $color-white;
+		text-align: left;
+		cursor: pointer;
+
+		padding: 10px 12px;
+		border-radius: 12px;
+
+		transition:
+			background 0.2s ease,
+			transform 0.15s ease;
+
+		&:hover {
+			background: rgba(255, 255, 255, 0.15);
+		}
+
+		&:active {
+			transform: scale(0.98);
+		}
+	}
+}
+
+.notif-badge {
+	background: #ff4d4f;
+	color: #fff;
+	font-size: 11px;
+	padding: 2px 6px;
+	border-radius: 999px;
+	margin-left: 6px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+	.desktop-only {
+		display: none;
+	}
+	.hamburger {
+		display: flex !important;
+	}
+}

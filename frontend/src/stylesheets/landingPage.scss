@@ -1,0 +1,72 @@
+@import "./theme";
+
+.landing-page-container {
+	width: 100vw;
+	height: 100vh;
+
+	background:
+		linear-gradient(100deg, $color-pink-primary, $color-pink-secondary),
+		url("../assets/backgroundImg.avif") no-repeat center center / cover;
+
+	display: flex;
+	flex-direction: column;
+	font-family: $font-primary;
+}
+
+.hero-title {
+	font-size: $font-size-xl;
+	font-weight: 700;
+	max-width: 620px;
+	line-height: 1.1;
+	letter-spacing: -0.02em;
+	margin-bottom: 0.5rem;
+	margin-top: 0.5rem;
+}
+
+.hero-subtitle {
+	font-size: $font-size-lg;
+	margin-top: 16px;
+	max-width: 420px;
+	color: $color-white-muted;
+	line-height: 1.5;
+}
+
+.auth-placeholder {
+	margin-top: 1rem;
+}
+
+.hero-section {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+
+	padding-left: $spacing-page-horizontal;
+	padding-top: 0px;
+	padding-bottom: 1rem;
+
+	color: $color-white;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+	.hero-section {
+		padding-left: 120px;
+	}
+}
+
+@media (max-width: 768px) {
+	.hero-section {
+		padding: 80px 24px 120px;
+		align-items: center;
+		text-align: center;
+	}
+
+	.hero-title {
+		font-size: 40px;
+	}
+
+	.auth-card {
+		width: 100%;
+		max-width: 360px;
+	}
+}

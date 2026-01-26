@@ -1,0 +1,25 @@
+/* ------------------------------ COLORS -------------------------------- */
+$color-pink-primary: rgba(244, 0, 255, 0.25);
+$color-pink-secondary: rgba(255, 0, 0, 0.15);
+$color-white: #ffffff;
+$color-white-muted: rgba(255, 255, 255, 0.85);
+
+/* ------------------------------ TYPOGRAPHY -------------------------------- */
+$font-primary:
+	"Inter",
+	-apple-system,
+	BlinkMacSystemFont,
+	sans-serif;
+
+$font-size-xl: 52px;
+$font-size-lg: 18px;
+$font-size-md: 14px;
+
+/* ------------------------------  SPACING -------------------------------- */
+
+$spacing-page-horizontal: 250px;
+$spacing-navbar-height: 80px;
+
+/* ------------------------------ EFFECTS -------------------------------- */
+
+$transition-fast: 0.2s ease;

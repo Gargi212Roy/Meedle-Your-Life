@@ -1,0 +1,247 @@
+@import "./theme";
+
+.feed-container {
+	width: 100%;
+	max-width: 680px;
+	margin: 0 auto;
+	margin-bottom: 1.5rem;
+	padding: 48px 24px 80px;
+	flex: 1;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	scroll-behavior: smooth;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 150, 190, 0.9) rgba(255, 255, 255, 0.08);
+	color: $color-white;
+}
+
+.feed-item {
+	background: rgba(255, 255, 255, 0.14);
+	backdrop-filter: blur(8px);
+	border-radius: 16px;
+	padding: 18px;
+	flex-shrink: 0;
+	transition:
+		transform 0.2s ease,
+		box-shadow 0.2s ease;
+
+	&:hover {
+		transform: translateY(-1px);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+	}
+}
+
+.feed-header {
+	display: flex;
+	justify-content: space-between;
+	font-size: 13px;
+	color: $color-white-muted;
+}
+
+.feed-author {
+	font-weight: 600;
+	color: #fff;
+	text-decoration: none;
+}
+
+.feed-content {
+	margin-top: 8px;
+	font-size: 15px;
+	line-height: 1.5;
+}
+
+.feed-error {
+	color: #ffd6d6;
+}
+
+.feed-empty {
+	text-align: center;
+	opacity: 0.8;
+}
+
+.meedle-composer {
+	background: rgba(255, 255, 255, 0.15);
+	backdrop-filter: blur(10px);
+	border-radius: 16px;
+	padding: 16px;
+	margin-bottom: 24px;
+}
+
+.meedle-composer textarea {
+	width: 100%;
+	min-height: 90px;
+	resize: none;
+	border: none;
+	background: transparent;
+	color: $color-white;
+	font-size: 15px;
+	line-height: 1.4;
+	outline: none;
+
+	&::placeholder {
+		color: $color-white-muted;
+	}
+}
+
+.composer-footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 12px;
+}
+
+.char-count {
+	font-size: 12px;
+	color: $color-white-muted;
+
+	&.warn {
+		color: #ffd1d1;
+	}
+}
+
+.meedle-composer button {
+	background: rgba(255, 255, 255, 0.9);
+	border: none;
+	border-radius: 20px;
+	padding: 6px 16px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: $transition-fast;
+
+	&:disabled {
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+
+	&:hover:not(:disabled) {
+		background: #fff;
+	}
+}
+
+.composer-error {
+	margin-top: 8px;
+	font-size: 13px;
+	color: #ffe1e1;
+}
+
+.feed-loader {
+	display: flex;
+	justify-content: center;
+	padding: 24px 0;
+	font-size: 14px;
+	color: $color-white-muted;
+}
+
+.feed-end {
+	text-align: center;
+	padding: 32px 0;
+	font-size: 14px;
+	opacity: 0.8;
+}
+
+// custom scrollbar
+
+.feed-container::-webkit-scrollbar {
+	width: 8px;
+}
+
+.feed-container::-webkit-scrollbar-track {
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 10px;
+}
+
+.feed-container::-webkit-scrollbar-thumb {
+	background: linear-gradient(
+		180deg,
+		rgba(255, 180, 210, 0.9),
+		rgba(255, 120, 180, 0.9)
+	);
+	border-radius: 10px;
+}
+
+.feed-container::-webkit-scrollbar-thumb:hover {
+	background: linear-gradient(
+		180deg,
+		rgba(255, 200, 220, 1),
+		rgba(255, 140, 190, 1)
+	);
+}
+
+.feed-container::-webkit-scrollbar-thumb {
+	box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+.like-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+
+	background: transparent;
+	border: none;
+	padding: 6px 12px;
+
+	border-radius: 999px;
+
+	font-size: 14px;
+	font-weight: 500;
+	color: $color-white-muted;
+
+	cursor: pointer;
+	user-select: none;
+
+	transition:
+		background 0.2s ease,
+		color 0.2s ease,
+		transform 0.15s ease;
+
+	&:hover:not(:disabled) {
+		background: rgba(255, 255, 255, 0.12);
+		color: $color-white;
+	}
+
+	&:active:not(:disabled) {
+		transform: scale(0.96);
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+}
+
+.like-btn.liked {
+	color: #ffd1dc;
+
+	background: rgba(255, 180, 210, 0.18);
+
+	font-weight: 600;
+
+	animation: like-pop 0.25s ease;
+}
+
+@keyframes like-pop {
+	0% {
+		transform: scale(1);
+	}
+	40% {
+		transform: scale(1.15);
+	}
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 1024px) {
+	.feed-container {
+		max-width: 640px;
+	}
+}
+@media (max-width: 768px) {
+	.feed-container {
+		max-width: 100%;
+		padding: 16px;
+	}
+}
