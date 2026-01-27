@@ -2,15 +2,30 @@ import api from "../utils/axios";
 import { Notification } from "../types/notification";
 
 export const fetchNotifications = async (): Promise<Notification[]> => {
-	const res = await api.get("/notifications");
-	return res.data.data;
+	try {
+		const res = await api.get("/notifications");
+		return res.data.data;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
 };
 
 export const fetchUnreadCount = async (): Promise<number> => {
-	const res = await api.get("/notifications/unread-count");
-	return res.data?.data?.count || 0;
+	try {
+		const res = await api.get("/notifications/unread-count");
+		return res.data?.data?.count || 0;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
 };
 
 export const markAllAsRead = async (): Promise<void> => {
-	await api.patch("/notifications/mark-as-read");
+	try {
+		await api.post("/notifications/mark-all-as-read");
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
 };

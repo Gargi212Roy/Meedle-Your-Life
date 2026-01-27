@@ -49,6 +49,10 @@ Users can post short thoughts (“meedles”), follow others, like and reply, an
 - Bookmark meedles
 - Dark / light theme toggle
 
+## ⚠️ iOS Browser Limitation
+
+Due to Safari’s cross-site cookie restrictions (ITP), login is currently limited on iOS browsers when frontend and backend are hosted on different domains. A same-domain setup is planned to fully resolve this.
+
 ---
 
 ## 👩‍💻 Author

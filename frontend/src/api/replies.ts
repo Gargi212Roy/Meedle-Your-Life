@@ -5,8 +5,13 @@ export const addReply = async (
 	meedleId: string,
 	text: string,
 ): Promise<Reply> => {
-	const res = await api.post(`/meedles/${meedleId}/replies`, {
-		text,
-	});
-	return res.data.data.reply;
+	try {
+		const res = await api.post(`/meedles/${meedleId}/replies`, {
+			text,
+		});
+		return res.data.data.reply;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
 };

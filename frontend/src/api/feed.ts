@@ -20,15 +20,25 @@ export const fetchFeed = async (
 export const createMeedle = async (
 	payload: CreateMeedlePayload,
 ): Promise<Meedle> => {
-	const res = await api.post<ApiResponse<Meedle>>("/meedles", payload);
-	return res.data.data;
+	try {
+		const res = await api.post<ApiResponse<Meedle>>("/meedles", payload);
+		return res.data.data;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
 };
 
 export const toggleLikeMeedle = async (
 	id: string,
 ): Promise<ToggleLikeResponse> => {
-	const res = await api.post<ApiResponse<ToggleLikeResponse>>(
-		`/meedles/${id}/like`,
-	);
-	return res.data.data;
+	try {
+		const res = await api.post<ApiResponse<ToggleLikeResponse>>(
+			`/meedles/${id}/like`,
+		);
+		return res.data.data;
+	} catch (error) {
+		console.log(error);
+		throw error;
+	}
 };

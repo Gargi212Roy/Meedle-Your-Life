@@ -1,11 +1,5 @@
-import { ReactNode } from "react";
 import "../../stylesheets/auth.scss";
-
-interface AuthCardProps {
-	title: string;
-	subtitle: string;
-	children: ReactNode;
-}
+import { AuthCardProps } from "../../types/profile";
 
 const AuthCard: React.FC<AuthCardProps> = ({ title, subtitle, children }) => {
 	return (

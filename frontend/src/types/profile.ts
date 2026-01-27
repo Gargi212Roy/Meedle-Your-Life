@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { Meedle } from "./feed";
 
 export interface UserProfile {
@@ -18,3 +19,9 @@ export interface UserMeedlesResponse {
 }
 
 export type ProfileTab = "meedles" | "replies" | "likes";
+
+export interface AuthCardProps {
+	title: string;
+	subtitle: string;
+	children: ReactNode;
+}
