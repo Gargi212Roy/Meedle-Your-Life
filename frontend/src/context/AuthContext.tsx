@@ -28,6 +28,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 	const logout = async () => {
 		try {
 			await api.post("/auth/logout");
+		} catch (e) {
+			console.error("Logout failed", e);
 		} finally {
 			setUser(null);
 			setIsAuthenticated(false);

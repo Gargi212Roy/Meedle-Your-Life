@@ -21,12 +21,20 @@ const Navbar: React.FC = () => {
 	}, []);
 
 	useEffect(() => {
-		fetchUnreadCount().then(setUnreadCount);
+		fetchUnreadCount()
+			.then(setUnreadCount)
+			.catch(() => {
+				setUnreadCount(0);
+			});
 	}, []);
 
 	const handleLogout = async () => {
-		await logout();
-		setMenuOpen(false);
+		try {
+			await logout();
+			setMenuOpen(false);
+		} catch (e) {
+			console.error("Logout failed", e);
+		}
 	};
 
 	const closeMenu = () => setMenuOpen(false);

@@ -90,7 +90,19 @@ const FeedPage: React.FC = () => {
 				{loading && <p>Loading feed...</p>}
 				{error && <p className="feed-error">{error}</p>}
 
-				{!loading && !error && (
+				{!loading && !error && feed.length === 0 && (
+					<div className="feed-empty">
+						<p className="feed-empty-title">
+							Your feed is feeling quiet 🌱
+						</p>
+						<p className="feed-empty-subtitle">
+							Follow people to see their meedles, or start your
+							own conversation.
+						</p>
+					</div>
+				)}
+
+				{!loading && !error && feed.length > 0 && (
 					<>
 						{feed.map((meedle) => (
 							<FeedItem key={meedle._id} meedle={meedle} />
@@ -102,7 +114,7 @@ const FeedPage: React.FC = () => {
 							</div>
 						)}
 
-						{!hasMore && feed.length > 0 && (
+						{!hasMore && (
 							<p className="feed-end">You’re all caught up ✨</p>
 						)}
 					</>

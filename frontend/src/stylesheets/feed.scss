@@ -233,6 +233,25 @@
 	}
 }
 
+.feed-empty {
+	margin: 80px auto;
+	text-align: center;
+	max-width: 420px;
+	color: #000;
+}
+
+.feed-empty-title {
+	font-size: 20px;
+	font-weight: 600;
+	margin-bottom: 8px;
+}
+
+.feed-empty-subtitle {
+	font-size: 14px;
+	line-height: 1.5;
+	color: #000;
+}
+
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 1024px) {
 	.feed-container {

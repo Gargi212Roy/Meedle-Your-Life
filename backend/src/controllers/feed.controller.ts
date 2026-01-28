@@ -41,6 +41,7 @@ export const getFeed = async (
 			author: { $in: authorIds },
 		})
 			.populate("author", "username")
+			.populate("replies.author", "username")
 			.sort({ createdAt: -1 })
 			.skip(skip)
 			.limit(limit)

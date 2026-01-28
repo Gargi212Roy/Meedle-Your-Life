@@ -23,7 +23,7 @@ export const fetchUnreadCount = async (): Promise<number> => {
 
 export const markAllAsRead = async (): Promise<void> => {
 	try {
-		await api.post("/notifications/mark-all-as-read");
+		await api.patch("/notifications/mark-as-read");
 	} catch (error) {
 		console.log(error);
 		throw error;
